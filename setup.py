@@ -25,7 +25,7 @@ setup(
     name="sample-cli",
     version='0.0.1',
     description="Playing with Click",
-    long_description="\n\n".join([open("README.rst").read()]),
+    long_description="\n\n".join([open("README.MD").read()]),
     license='MIT',
     author="Nicole Tibay",
     author_email="neequole@gmail.com",
