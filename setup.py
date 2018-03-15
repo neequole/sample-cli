@@ -23,7 +23,7 @@ class PyTest(TestCommand):
 
 setup(
     name="sample-cli",
-    version='0.0.0',
+    version='0.0.1',
     description="Playing with Click",
     long_description="\n\n".join([open("README.rst").read()]),
     license='MIT',
@@ -33,7 +33,7 @@ setup(
     packages=find_packages(),
     install_requires=requires,
     entry_points={'console_scripts': [
-        'sample_cli = sample_cli.cli:main']},
+        'calc = sample_cli.cli:main']},
     classifiers=[
         'Development Status :: 1 - Planning',
         'License :: OSI Approved :: MIT License',
