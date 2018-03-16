@@ -34,6 +34,7 @@ setup(
     install_requires=requires,
     entry_points={'console_scripts': [
         'calc = sample_cli.cli:main']},
+    include_package_data=True,
     classifiers=[
         'Development Status :: 1 - Planning',
         'License :: OSI Approved :: MIT License',
