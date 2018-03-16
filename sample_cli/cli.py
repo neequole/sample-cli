@@ -2,6 +2,11 @@
 from __future__ import unicode_literals, absolute_import, print_function
 import click
 
+from .compute import add as perform_add, \
+    subtract as perform_subtract, \
+    multiply as perform_multiply, \
+    divide as perform_divide
+
 
 @click.group()
 @click.option('--verbose', is_flag=True, help="Will print verbose message")
@@ -27,7 +32,7 @@ def add(context, first_addend, second_addend):
     """
     if context.obj['verbose']:
         click.echo("Adding {} and {}...".format(first_addend, second_addend))
-    click.echo(first_addend + second_addend)
+    click.echo(perform_add(first_addend, second_addend))
 
 
 @main.command()
@@ -40,7 +45,7 @@ def subtract(context, minuend, subtrahend):
     """
     if context.obj['verbose']:
         click.echo("Subtracting {} and {}...".format(minuend, subtrahend))
-    click.echo(minuend - subtrahend)
+    click.echo(perform_subtract(minuend, subtrahend))
 
 
 @main.command()
@@ -53,7 +58,7 @@ def multiply(context, first_factor, second_factor):
     """
     if context.obj['verbose']:
         click.echo("Multiplying {} and {}...".format(first_factor, second_factor))
-    click.echo(first_factor * second_factor)
+    click.echo(perform_multiply(first_factor, second_factor))
 
 
 @main.command()
@@ -67,7 +72,4 @@ def divide(context, dividend, divisor, floor):
     """
     if context.obj['verbose']:
         click.echo("Dividing {} and {}...".format(dividend, divisor))
-    if floor:
-        click.echo(dividend // divisor)
-    else:
-        click.echo(dividend / divisor)
+    click.echo(perform_divide(dividend, divisor, floor))
